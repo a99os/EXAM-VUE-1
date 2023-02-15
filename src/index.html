@@ -19,7 +19,7 @@
     />
     <!-- fonts -->
   </head>
-  <body class="bg-white dark:bg-[#1C1C1C] dark:text-white">
+  <body class="bg-white dark:bg-[#1C1C1C] dark:text-white relative">
     <!-- Header started-->
     <header
       class="h-[94px] border-b-[1.5px] border-[#E5E7EA] flex justify-center items-center"
@@ -31,40 +31,73 @@
             <li
               class="nav__list-item flex px-4 py-[18px] dark:hover:bg-[#272727] cursor-pointer hover:bg-[#F5F5F5] hover:rounded-full duration-300"
             >
-              <h1 class="text-[18px] leading-[22px] font-medium">Categories</h1>
+              <a
+                href="#"
+                class="text-[18px] w-full h-full leading-[22px] font-medium"
+                >Categories</a
+              >
             </li>
             <li
               class="nav__list-item group relative px-4 py-[18px] w-[147px] flex items-center justify-around cursor-pointer dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-full duration-300"
             >
-              <h1 class="text-[18px] leading-[22px] font-medium">About Us</h1>
-              <i class="bx bx-chevron-down"></i>
-              <ul
-                class="absolute hidden top-12 left-0 group-hover:block w-[147px] h-[194px] p-[10px] shadow-md dark:bg-[#1C1C1C] rounded-[20px] dark:shadow-white dark:shadow-sm"
+              <a
+                href="#"
+                class="text-[18px] w-full h-full leading-[22px] font-medium"
+                >About Us</a
               >
-                <li
-                  class="w-[127px] h-[58px] text-[18px] leading-[22px] font-medium flex items-center py-[18px] px-4 dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-xl duration-300"
+              <i class="bx bx-chevron-down"></i>
+              <div
+                class="absolute hidden group-hover:block top-0 pt-[70px] left-0"
+              >
+                <ul
+                  class="dropdown bg-white w-[147px] p-[10px] duration-300 backdrop:blur-md dark:bg-[#1C1C1C] rounded-[20px] dark:shadow-white dark:shadow-sm"
                 >
-                  News
-                </li>
-                <li
-                  class="w-[127px] h-[58px] text-[18px] leading-[22px] font-medium flex items-center py-[18px] px-4 dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-xl duration-300"
-                >
-                  Careers
-                </li>
-                <li
-                  class="w-[127px] h-[58px] text-[18px] leading-[22px] font-medium flex items-center py-[18px] px-4 dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-xl duration-300"
-                >
-                  Locations
-                </li>
-              </ul>
+                  <li
+                    class="h-[58px] text-[18px] leading-[22px] font-medium flex items-center py-[18px] px-4 dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-xl duration-300"
+                  >
+                    <a href="#" class="w-full h-full"> News </a>
+                  </li>
+                  <li
+                    class="h-[58px] text-[18px] leading-[22px] font-medium flex items-center py-[18px] px-4 dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-xl duration-300"
+                  >
+                    <a href="#" class="w-full h-full"> Careers </a>
+                  </li>
+                  <li
+                    class="h-[58px] text-[18px] leading-[22px] font-medium flex items-center py-[18px] px-4 dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-xl duration-300"
+                  >
+                    <a href="#" class="w-full h-full"> Locations </a>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li
-              class="nav__list-item px-4 py-[18px] cursor-pointer dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-full duration-300"
+              class="nav__list-item relative group flex items-center justify-around px-4 py-[18px] cursor-pointer w-[169px] dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-full duration-300"
             >
-              <h1 class="inline-block text-[18px] leading-[22px] font-medium">
+              <a
+                href="#"
+                class="text-[18px] leading-[22px] font-medium w-full h-full"
+              >
                 Help center
-              </h1>
+              </a>
               <i class="bx bx-chevron-down"></i>
+              <div
+                class="absolute hidden group-hover:block top-0 pt-[70px] left-0"
+              >
+                <ul
+                  class="dropdown bg-white w-[169px] p-[10px] duration-300 backdrop:blur-md dark:bg-[#1C1C1C] rounded-[20px] dark:shadow-white dark:shadow-sm"
+                >
+                  <li
+                    class="h-[58px] text-[18px] leading-[22px] font-medium flex items-center py-[18px] px-4 dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-xl duration-300"
+                  >
+                    <a href="#" class="w-full h-full"> FAQ </a>
+                  </li>
+                  <li
+                    class="h-[58px] text-[18px] leading-[22px] font-medium flex items-center py-[18px] px-4 dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-xl duration-300"
+                  >
+                    <a href="#" class="w-full h-full"> Contact us </a>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
           <h1
@@ -97,6 +130,37 @@
             />
           </div>
         </nav>
+      </div>
+      <div
+        class="login absolute w-screen h-screen top-0 left-0 flex justify-center items-center"
+      >
+        <div class="bg-white w-[590px] h-[483px] py-10 px-8">
+          <form action="#" class="form">
+            <h1>Login</h1>
+            <p>Use the email and password that you login</p>
+            <input type="email" id="email" />
+            <div>
+              <input type="password" id="password" />
+              <img src="./images/Iconeye.svg" alt="icon-eye" />
+            </div>
+            <p>Forgot password</p>
+            <h3>I want to create an account</h3>
+            <div
+              class="group btn bg-[#299764] cursor-pointer w-[142px] h-[58px] rounded-full hover:bg-[#077743] active:bg-[#F5F5F5] flex justify-center items-center ml-4"
+            >
+              <h1
+                class="group-active:text-black text-white inline-block text-[18px] leading-[22px] font-medium"
+              >
+                Login
+              </h1>
+              <img
+                src="./images/exit-icon.svg"
+                alt="exit-icon"
+                class="ml-[11px]"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </header>
     <!-- Header finihsed -->
