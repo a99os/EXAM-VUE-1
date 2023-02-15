@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- tailwind -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="./output.css" />
 
@@ -18,8 +18,14 @@
       rel="stylesheet"
     />
     <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Work+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-white dark:bg-[#1C1C1C] dark:text-white relative">
+  <body class="font-['Montserrat'] bg-white dark:bg-[#1C1C1C] dark:text-white">
     <!-- Header started-->
     <header
       class="h-[94px] border-b-[1.5px] border-[#E5E7EA] flex justify-center items-center"
@@ -45,7 +51,7 @@
                 class="text-[18px] w-full h-full leading-[22px] font-medium"
                 >About Us</a
               >
-              <i class="bx bx-chevron-down"></i>
+              <i class="bx bx-chevron-down text-xl"></i>
               <div
                 class="absolute hidden group-hover:block top-0 pt-[70px] left-0"
               >
@@ -79,7 +85,7 @@
               >
                 Help center
               </a>
-              <i class="bx bx-chevron-down"></i>
+              <i class="bx bx-chevron-down text-xl"></i>
               <div
                 class="absolute hidden group-hover:block top-0 pt-[70px] left-0"
               >
@@ -116,6 +122,7 @@
             />
           </div>
           <div
+            id="btn-login"
             class="group btn bg-[#299764] cursor-pointer w-[142px] h-[58px] rounded-full hover:bg-[#077743] active:bg-[#F5F5F5] flex justify-center items-center ml-4"
           >
             <h1
@@ -132,21 +139,60 @@
         </nav>
       </div>
       <div
-        class="login absolute w-screen h-screen top-0 left-0 flex justify-center items-center"
+        class="login absolute hidden w-screen h-screen top-0 left-0 justify-center items-center"
       >
-        <div class="bg-white w-[590px] h-[483px] py-10 px-8">
-          <form action="#" class="form">
-            <h1>Login</h1>
-            <p>Use the email and password that you login</p>
-            <input type="email" id="email" />
-            <div>
-              <input type="password" id="password" />
-              <img src="./images/Iconeye.svg" alt="icon-eye" />
+        <div
+          class="bg-white dark:bg-[#272727] rounded-[20px] w-[590px] h-[483px] py-10 px-8 relative"
+        >
+          <form
+            action="#"
+            class="form flex flex-col justify-center items-center"
+          >
+            <h1 class="font-semibold text-[36px] leading-[44px]">Login</h1>
+            <p
+              class="font-normal text-[16px] leading-[24px] text-[#555555] mt-[10px]"
+            >
+              Use the email and password that you login
+            </p>
+            <input
+              type="email"
+              id="email"
+              placeholder="Email"
+              class="focus:ring-2 dark:bg-[#272727] focus:ring-sky-400 font-medium text-[18px] leading-[22px] w-full h-[58px] py-[18px] px-[30px] rounded-[82px] mt-8 outline-none border border-spacing-[1.5px] border-[#E5E7EA]"
+            />
+            <div class="w-full mt-4 relative">
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                class="focus:ring-2 dark:bg-[#272727] focus:ring-sky-400 font-medium text-[18px] leading-[22px] w-full h-[58px] py-[18px] px-[30px] rounded-[82px] outline-none border border-spacing-[1.5px] border-[#E5E7EA]"
+              />
+              <i
+                class="bx icon-eye bxs-show absolute text-lg right-[23px] top-[20px] cursor-pointer dark:text-white"
+              ></i>
             </div>
-            <p>Forgot password</p>
-            <h3>I want to create an account</h3>
-            <div
-              class="group btn bg-[#299764] cursor-pointer w-[142px] h-[58px] rounded-full hover:bg-[#077743] active:bg-[#F5F5F5] flex justify-center items-center ml-4"
+            <div class="text-end w-full flex justify-between">
+              <p
+                class="font-normal hidden text-[14px] leading-[17px] text-[#FF3B30] mt-[10px]"
+              >
+                Entered the wrong password
+              </p>
+              <a href="#" class="text-end flex-grow">
+                <p
+                  class="font-normal text-[14px] leading-[17px] text-[#555555] mt-[10px]"
+                >
+                  Forgot password
+                </p>
+              </a>
+            </div>
+            <a href="#">
+              <h3 class="font-medium text-[16px] leading-[20px] mt-[26px]">
+                I want to create an account
+              </h3>
+            </a>
+            <button
+              type="submit"
+              class="mt-8 group btn bg-[#299764] cursor-pointer w-full h-[58px] rounded-full hover:bg-[#077743] active:bg-[#F5F5F5] flex justify-center items-center ml-4"
             >
               <h1
                 class="group-active:text-black text-white inline-block text-[18px] leading-[22px] font-medium"
@@ -158,8 +204,13 @@
                 alt="exit-icon"
                 class="ml-[11px]"
               />
-            </div>
+            </button>
           </form>
+          <div
+            class="form_exit bg-[#F5F5F5] hover:bg-slate-200 absolute top-[24px] right-[24px] w-[58px] h-[58px] dark:bg-[#555353] dark:hover:bg-[#636161] duration-300 cursor-pointer rounded-full flex justify-center items-center"
+          >
+            <i class="bx bx-x"></i>
+          </div>
         </div>
       </div>
     </header>
