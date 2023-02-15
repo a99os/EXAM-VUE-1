@@ -24,6 +24,11 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Work+Sans:wght@700&display=swap"
       rel="stylesheet"
     />
+    <!-- swipper js -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
   </head>
   <body class="font-['Montserrat'] bg-white dark:bg-[#1C1C1C] dark:text-white">
     <!-- Header started-->
@@ -33,7 +38,7 @@
       <div class="container mx-auto max-w-[1200px]">
         <nav class="nav flex items-center">
           <img src="./images/Logo.svg" alt="logo" class="cursor-pointer" />
-          <ul class="nav__list flex items-center ml-5">
+          <ul class="nav__list flex items-center ml-5 z-40">
             <li
               class="nav__list-item flex px-4 py-[18px] dark:hover:bg-[#272727] cursor-pointer hover:bg-[#F5F5F5] hover:rounded-full duration-300"
             >
@@ -56,7 +61,7 @@
                 class="absolute hidden group-hover:block top-0 pt-[70px] left-0"
               >
                 <ul
-                  class="dropdown bg-white w-[147px] p-[10px] duration-300 backdrop:blur-md dark:bg-[#1C1C1C] rounded-[20px] dark:shadow-white dark:shadow-sm"
+                  class="dropdown z-20 bg-white w-[147px] p-[10px] duration-300 backdrop:blur-md dark:bg-[#1C1C1C] rounded-[20px] dark:shadow-white dark:shadow-sm"
                 >
                   <li
                     class="h-[58px] text-[18px] leading-[22px] font-medium flex items-center py-[18px] px-4 dark:hover:bg-[#272727] hover:bg-[#F5F5F5] hover:rounded-xl duration-300"
@@ -139,7 +144,7 @@
         </nav>
       </div>
       <div
-        class="login absolute hidden w-screen h-screen top-0 left-0 justify-center items-center"
+        class="login z-40 absolute hidden w-screen h-screen top-0 left-0 justify-center items-center"
       >
         <div
           class="bg-white dark:bg-[#272727] rounded-[20px] w-[590px] h-[483px] py-10 px-8 relative"
@@ -215,6 +220,88 @@
       </div>
     </header>
     <!-- Header finihsed -->
+    <!-- main started -->
+    <main class="">
+      <!-- slider section started -->
+      <section class="slider">
+        <div class="container mx-auto max-w-[1200px]">
+          <div class="slider__wrapper relative">
+            <div
+              class="swiper mySwiper z-10 mt-5 relative rounded-2xl overflow-hidden"
+            >
+              <div class="swiper-wrapper">
+                <!-- dinamic content -->
+              </div>
+              <div
+                class="w-[84px] absolute bottom-10 right-10 z-10 flex items-center justify-between"
+              >
+                <div
+                  class="w-9 h-9 swiper__left rounded-full z-10 bg-white hover:bg-[#cbcaca] cursor-pointer flex items-center justify-center"
+                >
+                  <i class="bx bx-chevron-left text-xl text-black"></i>
+                </div>
+                <div
+                  class="w-9 h-9 swiper__right rounded-full z-10 bg-white hover:bg-[#cbcaca] cursor-pointer flex items-center justify-center"
+                >
+                  <i class="bx bx-chevron-right text-xl text-black"></i>
+                </div>
+              </div>
+              <div
+                class="pagin flex justify-start items-start w-[100px] absolute left-10 bottom-[46px]"
+              >
+                <!-- dinamic pagin elements -->
+              </div>
+            </div>
+            <div
+              class="absolute w-[600px] bg-white left-[300px] -bottom-[30px] z-50 rounded-full"
+            >
+              <div class="relative">
+                <input
+                  type="text"
+                  id="search"
+                  placeholder="Find the car of your dreams"
+                  class="focus:ring-2 dark:placeholder:text-[#555555] bg-transparent flex-grow text-[#000] focus:ring-[#299764] h-[66px] font-medium text-[18px] shadow-[0px_4px_10px_rgba(0,0,0,0.15)] leading-[22px] w-[600px] py-[18px] px-[30px] rounded-full outline-none"
+                />
+                <div
+                  class="icon w-[58px] hover:bg-[#077743] flex items-center justify-center text-2xl text-white cursor-pointer h-[58px] absolute top-1 right-1 rounded-full bg-[#299764]"
+                >
+                  <i class="bx bx-search-alt-2"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- slider section finished -->
+    </main>
+    <!-- main finished -->
   </body>
+  <script src="./scripts/utils.js"></script>
   <script src="./scripts/main.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper__right",
+        prevEl: ".swiper__left",
+      },
+
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: true,
+      },
+      mousewheel: {
+        invert: true,
+      },
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        type: "bullets",
+        clickable: true,
+      },
+    });
+  </script>
 </html>

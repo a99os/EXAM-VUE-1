@@ -5,3 +5,37 @@
 .login {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 }
+.container {
+  margin: 0 auto !important;
+  max-width: 1200px;
+}
+.swiper-pagination-bullet {
+  width: 8px !important;
+  height: 8px !important;
+
+  /* Background/White */
+
+  background: #ffffff !important;
+  opacity: 0.5 !important;
+  border-radius: 100px !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 30px !important;
+  height: 8px !important;
+
+  /* Background/White */
+
+  background: #ffffff !important;
+  border-radius: 100px !important;
+  opacity: 1 !important;
+
+  /* Inside auto layout */
+}
+.bg_linear {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 6.19%,
+    rgba(0, 0, 0, 0) 54.63%
+  ) !important;
+}

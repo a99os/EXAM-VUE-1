@@ -27,7 +27,7 @@ if (
 
 //  Whenever the user explicitly chooses light mode
 
-//  Whenever the user explicitly chooses dark mode
+//  ! CHoose mode theme
 mode.addEventListener("click", (e) => {
   if (localStorage.theme === "dark") {
     document.documentElement.classList.remove("dark");
@@ -76,6 +76,58 @@ iconEye.addEventListener("click", (e) => {
   }
 });
 
-// form.addEventListener("submit", (e) => {
-//   if()
-// });
+// !--slider-------------------
+const swiperWrap = document.querySelector(".swiper-wrapper");
+const pagin = document.querySelector(".pagin");
+let contents = [
+  {
+    id: 1,
+    title: "Compact cars",
+    info: "Rent cars as you are comfortable and where you are comfortable.",
+    img: "./images/Group 34405.jpg",
+  },
+  {
+    id: 2,
+    title: "Sports cars",
+    info: "Rent cars as you are comfortable and where you are comfortable.",
+    img: "./images/Group 34406.jpg",
+  },
+  {
+    id: 3,
+    title: "Vans ",
+    info: "Rent cars as you are comfortable and where you are comfortable.",
+    img: "./images/Group 34407.jpg",
+  },
+  {
+    id: 4,
+    title: "CHeap cars",
+    info: "lorem ipsum dolor",
+    img: "./images/Group 34408.jpg",
+  },
+];
+
+contents.forEach((val) => {
+  const element = createElement(
+    "div",
+    "swiper-slide w-full h-[500px] bg-cover bg-no-repeat bg-center rounded-2xl duration-300",
+    `
+  
+  <div class="bg_linear w-full h-full pt-[60px] text-center">
+  <h1
+    class="font-semibold text-[36px] leading-[44px] text-center text-white"
+  >
+    ${val.title}
+  </h1>
+  <p
+    class="font-normal w-[416px] text-[16px] leading-[20px] text-center text-white mx-auto mt-[10px]"
+  >
+   ${val.info}
+  </p>
+</div>
+  `
+  );
+  const paginElem = createElement("div", "swiper-pagination", "");
+  element.style.backgroundImage = `url('${val.img}')`;
+  swiperWrap.append(element);
+  pagin.append(paginElem);
+});
