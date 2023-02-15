@@ -132,18 +132,6 @@ contents.forEach((val) => {
   pagin.append(paginElem);
 });
 
-// ! filter button
-const filter__buttons = document.querySelector(".filter__buttons");
-filter__buttons.addEventListener("click", (e) => {
-  if (e.target.classList.contains("fill-btn")) {
-    document
-      .querySelector(".filter__buttons-active")
-      .classList.remove("filter__buttons-active");
-
-    e.target.classList.add("filter__buttons-active");
-  }
-});
-
 // ! car cards
 const cards = [
   {
@@ -155,6 +143,7 @@ const cards = [
     lever: "Automatic",
     age: "21+ Years",
     fuel: "1-lit / 2.5 km",
+    filter: "Compact",
   },
   {
     id: 2,
@@ -165,6 +154,7 @@ const cards = [
     lever: "Automatic",
     age: "21+ Years",
     fuel: "1-lit / 2.5 km",
+    filter: "Compact",
   },
   {
     id: 3,
@@ -175,6 +165,7 @@ const cards = [
     lever: "Automatic",
     age: "21+ Years",
     fuel: "1-lit / 2.5 km",
+    filter: "Compact",
   },
   {
     id: 4,
@@ -185,6 +176,7 @@ const cards = [
     lever: "Automatic",
     age: "21+ Years",
     fuel: "1-lit / 2.5 km",
+    filter: "Compact",
   },
   {
     id: 5,
@@ -195,6 +187,7 @@ const cards = [
     lever: "Automatic",
     age: "21+ Years",
     fuel: "1-lit / 2.5 km",
+    filter: "Compact",
   },
   {
     id: 6,
@@ -205,21 +198,125 @@ const cards = [
     lever: "Automatic",
     age: "21+ Years",
     fuel: "1-lit / 2.5 km",
+    filter: "Compact",
+  },
+  {
+    id: 7,
+    name: "Royce rolls ghost",
+    type: "Full-size Car",
+    img: "./images/image 13 (6).png",
+    seats: "5 Seats",
+    lever: "Automatic",
+    age: "21+ Years",
+    fuel: "1-lit / 2.5 km",
+    filter: "Sports cars",
+  },
+  {
+    id: 8,
+    name: "Mercedes s class",
+    type: "Full-size Car",
+    img: "./images/image 13 (7).png",
+    seats: "5 Seats",
+    lever: "Automatic",
+    age: "21+ Years",
+    fuel: "1-lit / 2.5 km",
+    filter: "Sports cars",
+  },
+  {
+    id: 9,
+    name: "Lamborghini urus",
+    type: "Mid-size Car",
+    img: "./images/image 13 (8).png",
+    seats: "5 Seats",
+    lever: "Automatic",
+    age: "21+ Years",
+    fuel: "1-lit / 2.5 km",
+    filter: "Sports cars",
+  },
+  {
+    id: 10,
+    name: "Mercedes g63 amg",
+    type: "Mid-size SUV",
+    img: "./images/image 13 (9).png",
+    seats: "5 Seats",
+    lever: "Automatic",
+    age: "21+ Years",
+    fuel: "1-lit / 2.5 km",
+    filter: "Sports cars",
+  },
+  {
+    id: 11,
+    name: "15-Passenger Ford Transit ",
+    type: "Full-size Car",
+    img: "./images/image 13 (10).png",
+    seats: "15 Seats",
+    lever: "Automatic",
+    age: "21+ Years",
+    fuel: "1-lit / 2.5 km",
+    filter: "Vans",
+  },
+  {
+    id: 12,
+    name: "Chrysler Pacifica",
+    type: "Full-size Car",
+    img: "./images/image 13 (11).png",
+    seats: "5 Seats",
+    lever: "Automatic",
+    age: "21+ Years",
+    fuel: "1-lit / 2.5 km",
+    filter: "Vans",
+  },
+  {
+    id: 13,
+    name: "Chevy Silverado 4500HD",
+    type: "Mid-size Car",
+    img: "./images/image 13 (12).png",
+    seats: "5 Seats",
+    lever: "Automatic",
+    age: "21+ Years",
+    fuel: "1-lit / 2.5 km",
+    filter: "Vans",
+  },
+  {
+    id: 14,
+    name: "12-Passenger Ford Transit",
+    type: "Mid-size SUV",
+    img: "./images/image 13 (13).png",
+    seats: "12 Seats",
+    lever: "Automatic",
+    age: "21+ Years",
+    fuel: "1-lit / 2.5 km",
+    filter: "Vans",
+  },
+  {
+    id: 15,
+    name: "Mercedes-Benz Sprinter",
+    type: "Mid-size SUV",
+    img: "./images/image 13 (14).png",
+    seats: "12 Seats",
+    lever: "Automatic",
+    age: "21+ Years",
+    fuel: "1-lit / 2.5 km",
+    filter: "Vans",
   },
 ];
 const card_wrapper = document.querySelector(".car__cards");
+renderCard(cards, "Compact");
+function renderCard(cards, filter) {
+  card_wrapper.innerHTML = "";
 
-cards.forEach((val) => {
-  const element = createElement(
-    "div",
-    "w-[387px] group h-[433px] duration-300 py-[30px] hover:text-black bg-[#F5F5F5] dark:bg-[#272727] rounded-2xl hover:bg-[#febe10] cursor-pointer",
-    `
+  cards.forEach((val) => {
+    if (val.filter === filter || filter == "View all cars") {
+      const element = createElement(
+        "div",
+        "w-[387px] group h-[433px] duration-300 py-[30px] hover:text-black bg-[#F5F5F5] dark:bg-[#272727] rounded-2xl hover:bg-[#299764] hover:text-white cursor-pointer",
+        `
     
     <h1 class="font-semibold text-[24px] leading-[29px] mx-6">
     ${val.name}
   </h1>
   <p
-    class="font-medium text-[#555555] dark:text-white duration-300 mt-2 group-hover:text-[#555555] text-[16px] leading-[20px] mx-6"
+    class="font-medium text-[#555555] dark:text-white duration-300 mt-2 group-hover:text-[#fff] text-[16px] leading-[20px] mx-6"
   >
   ${val.type}
   </p>
@@ -233,13 +330,13 @@ cards.forEach((val) => {
     </div>
     <div class="flex justify-start items-center">
       <div
-        class="bg-[url('./images/Vectorlight.svg')] dark:bg-[url('./images/Vector.svg')] duration-300 group-hover:bg-[url('./images/Vectorlight.svg')] bg-center bg-cover w-3 h-3 inline-block"
+        class="bg-[url('./images/Vectorlight.svg')] dark:bg-[url('./images/Vector.svg')] duration-300 group-hover:bg-[url('./images/Vector.svg')] bg-center bg-cover w-3 h-3 inline-block"
       ></div>
       <span class="ml-[17px]">${val.lever}</span>
     </div>
     <div class="flex justify-start items-center">
       <div
-        class="bg-[url('./images/userpagerdark.svg')] dark:bg-[url('./images/userpage.svg')] duration-300 group-hover:bg-[url('./images/userpagerdark.svg')] bg-center bg-cover w-3 h-3 inline-block"
+        class="bg-[url('./images/userpagerdark.svg')] dark:bg-[url('./images/userpage.svg')] duration-300 group-hover:bg-[url('./images/userpage.svg')] bg-center bg-cover w-3 h-3 inline-block"
       ></div>
       <span class="ml-[13px]">${val.age}</span>
     </div>
@@ -249,6 +346,30 @@ cards.forEach((val) => {
     </div>
   </div>
     `
-  );
-  card_wrapper.append(element);
+      );
+      card_wrapper.append(element);
+    }
+  });
+}
+// ! filter button
+const filter__buttons = document.querySelector(".filter__buttons");
+filter__buttons.addEventListener("click", (e) => {
+  if (e.target.classList.contains("fill-btn")) {
+    document
+      .querySelector(".filter__buttons-active")
+      .classList.remove("filter__buttons-active");
+
+    e.target.classList.add("filter__buttons-active");
+    console.log(e.target.textContent);
+    renderCard(cards, e.target.textContent.trim());
+  }
+});
+
+const allBtn = document.querySelector(".all-btn");
+allBtn.addEventListener("click", (e) => {
+  document
+    .querySelector(".filter__buttons-active")
+    .classList.remove("filter__buttons-active");
+  renderCard(cards, e.target.textContent.trim());
+  allBtn.classList.add("filter__buttons-active");
 });
