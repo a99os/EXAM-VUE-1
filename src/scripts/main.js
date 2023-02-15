@@ -131,3 +131,15 @@ contents.forEach((val) => {
   swiperWrap.append(element);
   pagin.append(paginElem);
 });
+
+// ! filter button
+const filter__buttons = document.querySelector(".filter__buttons");
+filter__buttons.addEventListener("click", (e) => {
+  if (e.target.classList.contains("fill-btn")) {
+    document
+      .querySelector(".filter__buttons-active")
+      .classList.remove("filter__buttons-active");
+
+    e.target.classList.add("filter__buttons-active");
+  }
+}); 

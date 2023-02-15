@@ -39,3 +39,12 @@
     rgba(0, 0, 0, 0) 54.63%
   ) !important;
 }
+
+/* filter buttons */
+.filter__buttons-active {
+  background-color: #299764 !important;
+  color: #fff;
+}
+.filter__buttons-active:hover {
+  background-color: #077743 !important;
+}
