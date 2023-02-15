@@ -58,7 +58,9 @@
                 class="text-[18px] w-full h-full leading-[22px] font-medium"
                 >About Us</a
               >
-              <i class="bx bx-chevron-down text-xl"></i>
+              <i
+                class="bx bx-chevron-down text-xl group-hover:bx-chevron-up"
+              ></i>
               <div
                 class="absolute hidden group-hover:block top-0 pt-[70px] left-0"
               >
@@ -318,6 +320,68 @@
         </div>
       </section>
       <!-- choose car section finished -->
+      <!-- comment section started -->
+      <section class="comments bg-[#EEEEEE] py-[100px] dark:bg-[#272727]">
+        <div class="container mx-auto max-w-[1200px]">
+          <div class="comment__wrapper h-[479px] rounded-[20px] flex">
+            <div class="bg-white w-[470px] dark:bg-[#1C1C1C] p-[70px]">
+              <div class="flex">
+                <img src="./images/Google.svg" alt="google" />
+                <a
+                  href="https://www.google.com/"
+                  class="ml-2 text-[#4285F4] font-medium text-4 left-5"
+                  >From Google</a
+                >
+              </div>
+              <h1 class="mt-4 font-medium text-[38px] left-[50px]">
+                Hear what the community is saying
+              </h1>
+              <div class="kamalak my-[30px] h-[2px]"></div>
+              <p
+                class="mt-4 font-medium text-[14px] left-[17px] text-[#555555] dark:text-[#fff]"
+              >
+                More interesting reviews on Instagram
+              </p>
+              <div
+                class="group btn-insta p-[2px] cursor-pointer rounded-full mt-4 inline-block"
+              >
+                <div
+                  class="group-hover:bg-transparent group-hover:text-white bg-white py-[17px] px-[59px] rounded-full inline-block"
+                >
+                  <h1 class="font-insta font-medium text-[18px leading-[22px]">
+                    Instagram
+                  </h1>
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-[730px] bg-[#299764] relative overflow-hidden border-l-2 border-[#299764]"
+            >
+              <ul class="comment_list mt-[50px] flex gap-5 pl-10 duration-500">
+                <!-- dinamic comments -->
+              </ul>
+              <div
+                class="w-[84px] absolute bottom-10 right-10 z-10 flex items-center justify-between"
+              >
+                <div
+                  class="w-9 h-9 slider__left rounded-full z-10 bg-white hover:bg-[#cbcaca] cursor-pointer flex items-center justify-center"
+                >
+                  <i class="bx bx-chevron-left text-xl text-black"></i>
+                </div>
+                <div
+                  class="w-9 h-9 slider__right rounded-full z-10 bg-white hover:bg-[#cbcaca] cursor-pointer flex items-center justify-center"
+                >
+                  <i class="bx bx-chevron-right text-xl text-black"></i>
+                </div>
+              </div>
+              <div class="scrollbar ml-10 flex mt-[37px]">
+                <!-- dinamic scrollbar -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- comment section finished -->
     </main>
     <!-- main finished -->
   </body>
