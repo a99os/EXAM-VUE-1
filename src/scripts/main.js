@@ -1,7 +1,7 @@
 // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-const mode = document.querySelector(".mode");
-const modeIcon = document.querySelector("#mode-icon");
-const loginBtn = document.querySelector("#btn-login");
+const mode = document.querySelectorAll(".mode");
+const modeIcon = document.querySelectorAll(".mode-icon");
+const loginBtn = document.querySelectorAll(".btn-login");
 const login = document.querySelector(".login");
 const form_exit = document.querySelector(".form_exit");
 const iconEye = document.querySelector(".icon-eye");
@@ -9,6 +9,7 @@ const password = document.querySelector("#password");
 const email = document.querySelector("#email");
 const form = document.querySelector(".form");
 
+//  ! CHoose mode theme
 if (
   localStorage.theme === "dark" ||
   (!("theme" in localStorage) &&
@@ -16,42 +17,92 @@ if (
 ) {
   document.documentElement.classList.add("dark");
   localStorage.theme = "dark";
-  modeIcon.removeAttribute("src");
-  modeIcon.setAttribute("src", "./images/Iconsun.svg");
+  modeIcon[0].removeAttribute("src");
+  modeIcon[1].removeAttribute("src");
+  modeIcon[0].setAttribute("src", "./images/Iconsun.svg");
+  modeIcon[1].setAttribute("src", "./images/Iconsun.svg");
 } else {
   document.documentElement.classList.remove("dark");
   localStorage.theme = "light";
-  modeIcon.removeAttribute("src");
-  modeIcon.setAttribute("src", "./images/Icon.svg");
+  modeIcon[0].removeAttribute("src");
+  modeIcon[1].removeAttribute("src");
+  modeIcon[0].setAttribute("src", "./images/Icon.svg");
+  modeIcon[1].setAttribute("src", "./images/Icon.svg");
 }
 
 //  Whenever the user explicitly chooses light mode
 
-//  ! CHoose mode theme
-mode.addEventListener("click", (e) => {
+mode[0].addEventListener("click", (e) => {
+  changeMode();
+});
+mode[1].addEventListener("click", (e) => {
+  changeMode();
+});
+
+function changeMode() {
   if (localStorage.theme === "dark") {
     document.documentElement.classList.remove("dark");
     localStorage.theme = "light";
-    modeIcon.removeAttribute("src");
-    modeIcon.setAttribute("src", "./images/Icon.svg");
+    modeIcon[0].removeAttribute("src");
+    modeIcon[1].removeAttribute("src");
+    modeIcon[0].setAttribute("src", "./images/Icon.svg");
+    modeIcon[1].setAttribute("src", "./images/Icon.svg");
   } else {
     document.documentElement.classList.add("dark");
     localStorage.theme = "dark";
-    modeIcon.removeAttribute("src");
-    modeIcon.setAttribute("src", "./images/Iconsun.svg");
+    modeIcon[0].removeAttribute("src");
+    modeIcon[1].removeAttribute("src");
+    modeIcon[0].setAttribute("src", "./images/Iconsun.svg");
+    modeIcon[1].setAttribute("src", "./images/Iconsun.svg");
+  }
+}
+
+// !menu dropdown
+const menu = document.querySelector(".menu");
+const menuList = document.querySelector(".menu__list");
+const exitMenu = document.querySelector(".exit-menu");
+const btnMenu = document.querySelector(".btn-menu");
+btnMenu.addEventListener("click", (e) => {
+  document.querySelector("body").classList.add("overflow-y-hidden");
+  menu.style.transform = "translateX(0px)";
+  setTimeout(() => {
+    menu.style.background =
+      "linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))";
+  }, 300);
+});
+exitMenu.addEventListener("click", (e) => {
+  removeMenu();
+});
+menu.addEventListener("click", (e) => {
+  if (e.target.classList.contains("menu")) {
+    removeMenu();
   }
 });
+function removeMenu() {
+  menu.style.background = "none";
+  menu.style.transform = "translateX(100%)";
+  document.querySelector("body").classList.remove("overflow-y-hidden");
+}
 
 // !----login modal
-loginBtn.addEventListener("click", (e) => {
+loginBtn[0].addEventListener("click", (e) => {
   login.classList.remove("hidden");
   login.classList.add("flex");
+  document.querySelector("body").classList.add("overflow-y-hidden");
+});
+loginBtn[1].addEventListener("click", (e) => {
+  removeMenu();
+
+  login.classList.remove("hidden");
+  login.classList.add("flex");
+  document.querySelector("body").classList.add("overflow-y-hidden");
 });
 
 login.addEventListener("click", (e) => {
   if (e.target.classList.contains("login")) {
     login.classList.add("hidden");
     login.classList.remove("flex");
+    document.querySelector("body").classList.remove("overflow-y-hidden");
     password.value = "";
     email.value = "";
   }
@@ -62,6 +113,7 @@ form_exit.addEventListener("click", (e) => {
   login.classList.remove("flex");
   password.value = "";
   email.value = "";
+  document.querySelector("body").classList.remove("overflow-y-hidden");
 });
 
 iconEye.addEventListener("click", (e) => {
@@ -109,7 +161,7 @@ let contents = [
 contents.forEach((val) => {
   const element = createElement(
     "div",
-    "swiper-slide w-full h-[500px] bg-cover bg-no-repeat bg-center rounded-2xl duration-300",
+    "swiper-slide h-[358px]  w-[300px] md:w-full  md:h-[500px] bg-cover bg-no-repeat bg-center rounded-2xl duration-300 ",
     `
   
   <div class="bg_linear w-full h-full pt-[60px] text-center">
