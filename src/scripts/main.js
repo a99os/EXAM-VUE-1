@@ -161,7 +161,7 @@ let contents = [
 contents.forEach((val) => {
   const element = createElement(
     "div",
-    "swiper-slide h-[358px]  w-[300px] md:w-full  md:h-[500px] bg-cover bg-no-repeat bg-center rounded-2xl duration-300 ",
+    "swiper-slide h-[358px]  w-[300px] sm:w-full  sm:h-[500px] bg-cover bg-no-repeat bg-center rounded-2xl duration-300 ",
     `
   
   <div class="bg_linear w-full h-full pt-[60px] text-center">
@@ -361,7 +361,7 @@ function renderCard(cards, filter) {
     if (val.filter === filter || filter == "View all cars") {
       const element = createElement(
         "div",
-        "w-[387px] group h-[433px] duration-300 py-[30px] hover:text-black bg-[#F5F5F5] dark:bg-[#272727] rounded-2xl hover:bg-[#299764] hover:text-white cursor-pointer",
+        "w-[358px] sm:w-[387px] group h-[395px] sm:h-[433px] duration-300 py-[30px] hover:text-black bg-[#F5F5F5] dark:bg-[#272727] rounded-2xl hover:bg-[#299764] hover:text-white cursor-pointer",
         `
     
     <h1 class="font-semibold text-[24px] duration-300 group-hover:text-white leading-[29px] mx-6">
@@ -374,27 +374,30 @@ function renderCard(cards, filter) {
   </p>
   <img src="${val.img}" class="mt-4" alt="car" />
   <div
-    class="grid grid-cols-2 grid-rows-2 ml-[27px] mr-[89px] gap-6"
+    class="grid grid-cols-2 grid-rows-2 ml-[23px] sm:ml-[27px] mr-[68px] sm:mr-[89px] gap-2 sm:gap-6"
   >
     <div class="flex justify-start items-center">
       <i class="bx bxs-user duration-300 group-hover:text-white"></i>
-      <span class="ml-[13px] duration-300 group-hover:text-white">${val.seats}</span>
+      <span class="ml-[13px] duration-300 group-hover:text-white text-4 leading-5">${val.seats}</span>
     </div>
+
     <div class="flex justify-start items-center">
       <div
         class="bg-[url('./images/Vectorlight.svg')] dark:bg-[url('./images/Vector.svg')] duration-300 group-hover:bg-[url('./images/Vector.svg')] bg-center bg-cover w-3 h-3 inline-block"
       ></div>
-      <span class="ml-[17px] duration-300 group-hover:text-white ">${val.lever}</span>
+      <span class="ml-[17px] duration-300 group-hover:text-white text-4 leading-5 ">${val.lever}</span>
     </div>
+
     <div class="flex justify-start items-center">
       <div
         class="bg-[url('./images/userpagerdark.svg')] dark:bg-[url('./images/userpage.svg')] duration-300 group-hover:bg-[url('./images/userpage.svg')] bg-center bg-cover w-3 h-3 inline-block"
       ></div>
-      <span class="ml-[13px] duration-300 group-hover:text-white">${val.age}</span>
+      <span class="ml-[13px] duration-300 group-hover:text-white text-4 leading-5">${val.age}</span>
     </div>
+
     <div class="flex justify-start items-center">
       <i class="bx bxs-droplet duration-300 group-hover:text-white"></i>
-      <span class="ml-[13px] duration-300 group-hover:text-white">${val.fuel}</span>
+      <span class="ml-[13px] duration-300 group-hover:text-white text-4 leading-5">${val.fuel}</span>
     </div>
   </div>
     `
@@ -477,20 +480,28 @@ const comments = [
 ];
 const comment_list = document.querySelector(".comment_list");
 const scrollbar = document.querySelector(".scrollbar");
+let w_card = 420;
+scrl_w = 546;
+const width = window.innerWidth;
+if (width <= 500) {
+  w_card = 340;
+  scrl_w = 326;
+}
+
 comments.forEach((el) => {
   const element = createElement(
     "li",
-    "comment__item w-[420px] h-[333px] rounded-2xl bg-white dark:bg-[#1C1C1C] p-6",
+    "comment__item h-[380px] w-[326px] sm:w-[420px] sm:h-[333px] rounded-2xl bg-white dark:bg-[#1C1C1C] p-6",
     `
   <div class="flex justify-between items-center">
                     <div class="flex">
                       <img src="${el.avatar}" alt="ava" />
                       <div class="ml-4">
-                        <h1 class="font-semibold text-4 left-5">
+                        <h1 class="font-semibold text-[14px] leading-[17px] sm:text-4 sm:leading-5">
                         ${el.name}
                         </h1>
                         <h2
-                          class="font-normal text-[14px] left-[17px] text-[#555555] dark:text-white"
+                          class="font-normal sm:text-[14px] text-[12px] leading-[15px]  sm:leading-[17px] text-[#555555] dark:text-white"
                         >
                         ${el.email}
                         </h2>
@@ -499,7 +510,7 @@ comments.forEach((el) => {
                     <img src="./images/Group 5.svg" alt="google" class="" />
                   </div>
                   <p
-                    class="w-[372px] h-[160px] font-normal text-[14px] left-[20px] mt-[14px]"
+                    class="w-[294px] sm:w-[372px] h-[220px] sm:h-[160px] font-normal text-[14px] left-[20px] mt-[14px]"
                   >
                   ${el.comment}
                   </p>
@@ -521,11 +532,12 @@ comments.forEach((el) => {
   comment_list.append(element);
   const scrbr = createElement(
     "div",
-    `scrbr-item w-[${546 / comments.length}px] h-1 bg-white opacity-[0.4]`,
+    `scrbr-item w-[${scrl_w / comments.length}px] h-1 bg-white opacity-[0.4]`,
     ""
   );
   scrollbar.append(scrbr);
 });
+
 document.querySelector(".scrbr-item").classList.add("active-scroll");
 
 count = 0;
@@ -544,7 +556,7 @@ function prevLeft() {
   if (count === 0) {
     count = comments.length;
   }
-  comment_list.style.transform = `translateX(-${--count * 420}px)`;
+  comment_list.style.transform = `translateX(-${--count * w_card}px)`;
   const scr = document.querySelectorAll(".scrbr-item");
   scr[count].classList.add("active-scroll");
 }
@@ -554,7 +566,7 @@ function prevRight() {
   if (count === comments.length - 1) {
     count = -1;
   }
-  comment_list.style.transform = `translateX(-${++count * 420}px)`;
+  comment_list.style.transform = `translateX(-${++count * w_card}px)`;
   const scr = document.querySelectorAll(".scrbr-item");
   scr[count].classList.add("active-scroll");
 }
