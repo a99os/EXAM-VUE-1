@@ -486,7 +486,13 @@ const width = window.innerWidth;
 if (width <= 500) {
   w_card = 340;
   scrl_w = 326;
+} else if (width < 1300) {
+  scrl_w = 642;
+  w_card = 300;
+  console.log("salom");
 }
+console.log(width);
+console.log(scrl_w);
 
 comments.forEach((el) => {
   const element = createElement(
