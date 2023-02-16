@@ -312,7 +312,7 @@ function renderCard(cards, filter) {
         "w-[387px] group h-[433px] duration-300 py-[30px] hover:text-black bg-[#F5F5F5] dark:bg-[#272727] rounded-2xl hover:bg-[#299764] hover:text-white cursor-pointer",
         `
     
-    <h1 class="font-semibold text-[24px] leading-[29px] mx-6">
+    <h1 class="font-semibold text-[24px] duration-300 group-hover:text-white leading-[29px] mx-6">
     ${val.name}
   </h1>
   <p
@@ -325,24 +325,24 @@ function renderCard(cards, filter) {
     class="grid grid-cols-2 grid-rows-2 ml-[27px] mr-[89px] gap-6"
   >
     <div class="flex justify-start items-center">
-      <i class="bx bxs-user"></i>
-      <span class="ml-[13px]">${val.seats}</span>
+      <i class="bx bxs-user duration-300 group-hover:text-white"></i>
+      <span class="ml-[13px] duration-300 group-hover:text-white">${val.seats}</span>
     </div>
     <div class="flex justify-start items-center">
       <div
         class="bg-[url('./images/Vectorlight.svg')] dark:bg-[url('./images/Vector.svg')] duration-300 group-hover:bg-[url('./images/Vector.svg')] bg-center bg-cover w-3 h-3 inline-block"
       ></div>
-      <span class="ml-[17px]">${val.lever}</span>
+      <span class="ml-[17px] duration-300 group-hover:text-white ">${val.lever}</span>
     </div>
     <div class="flex justify-start items-center">
       <div
         class="bg-[url('./images/userpagerdark.svg')] dark:bg-[url('./images/userpage.svg')] duration-300 group-hover:bg-[url('./images/userpage.svg')] bg-center bg-cover w-3 h-3 inline-block"
       ></div>
-      <span class="ml-[13px]">${val.age}</span>
+      <span class="ml-[13px] duration-300 group-hover:text-white">${val.age}</span>
     </div>
     <div class="flex justify-start items-center">
-      <i class="bx bxs-droplet"></i>
-      <span class="ml-[13px]">${val.fuel}</span>
+      <i class="bx bxs-droplet duration-300 group-hover:text-white"></i>
+      <span class="ml-[13px] duration-300 group-hover:text-white">${val.fuel}</span>
     </div>
   </div>
     `
