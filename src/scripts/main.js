@@ -481,15 +481,12 @@ const slider__right = document.querySelector(".slider__right");
 const slider__left = document.querySelector(".slider__left");
 
 slider__right.addEventListener("click", (e) => {
-  document.querySelector(".active-scroll").classList.remove("active-scroll");
-  if (count === comments.length - 1) {
-    count = -1;
-  }
-  comment_list.style.transform = `translateX(-${++count * 420}px)`;
-  const scr = document.querySelectorAll(".scrbr-item");
-  scr[count].classList.add("active-scroll");
+  prevRight();
 });
 slider__left.addEventListener("click", (e) => {
+  prevLeft();
+});
+function prevLeft() {
   document.querySelector(".active-scroll").classList.remove("active-scroll");
 
   if (count === 0) {
@@ -498,7 +495,39 @@ slider__left.addEventListener("click", (e) => {
   comment_list.style.transform = `translateX(-${--count * 420}px)`;
   const scr = document.querySelectorAll(".scrbr-item");
   scr[count].classList.add("active-scroll");
+}
+
+function prevRight() {
+  document.querySelector(".active-scroll").classList.remove("active-scroll");
+  if (count === comments.length - 1) {
+    count = -1;
+  }
+  comment_list.style.transform = `translateX(-${++count * 420}px)`;
+  const scr = document.querySelectorAll(".scrbr-item");
+  scr[count].classList.add("active-scroll");
+}
+
+// ! slider
+let mdwn = false;
+let before;
+const listCom = document.querySelector(".comment_list");
+listCom.addEventListener("mousedown", (e) => {
+  before = e.clientX;
+  mdwn = true;
 });
+listCom.addEventListener("mouseup", (b) => {
+  mdwn = false;
+  let after = b.clientX;
+  if (before - after > 100) {
+    prevRight();
+  } else if (after - before > 100) {
+    prevLeft();
+  }
+});
+
+// listCom.addEventListener("mousemove", (e) => {
+//   if (mdwn) console.log(e);
+// });
 
 // !button up
 // Get the button
